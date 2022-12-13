@@ -39,4 +39,29 @@ const calculator = () => {
   };
 };
 
-export { capitalize, reverseString, calculator };
+const caesarCipher = (s) => {
+  let key = "abcdefghijklmnopqrstuvwxyz";
+
+  if (s.length === 0) {
+    return s;
+  } else if (s.charAt(0) === "z" || s.charAt(0) === "Z") {
+    // Handles z characters
+    if (s.charAt(0) === "z") {
+        return "a" + caesarCipher(s.substr(1))
+    }
+    return "A" + caesarCipher(s.substr(1))
+  } else if (key.includes(s.charAt(0).toLowerCase()) === false) {
+    // Puncuation check
+    return s.charAt(0) + caesarCipher(s.substr(1));
+  } else if (s.charAt(0) === s.charAt(0).toUpperCase()) {
+    // Uppercase characters
+    return (
+      key[key.indexOf(s.charAt(0).toLowerCase()) + 1].toUpperCase() +
+      caesarCipher(s.substr(1))
+    );
+  } else {
+    return key[key.indexOf(s.charAt(0)) + 1] + caesarCipher(s.substr(1));
+  }
+};
+
+export { capitalize, reverseString, calculator, caesarCipher };
