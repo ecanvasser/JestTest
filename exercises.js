@@ -4,4 +4,11 @@ const capitalize = (s) => {
     return arr.toString().replaceAll(',', '')
  }
 
- export {capitalize}    
+ const reverseString = (s) => {
+    if (s.length === 0) {
+        return s
+    }
+    return reverseString(s.substr(1)) + s.charAt(0)
+ }
+
+export {capitalize, reverseString}    
