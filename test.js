@@ -3,7 +3,7 @@ import {
   reverseString,
   calculator,
   caesarCipher,
-  analyzeArray
+  analyzeArray,
 } from "./exercises";
 
 describe("reverseString tests", () => {
@@ -64,10 +64,10 @@ describe("analyzeArray tests", () => {
 
   test("Negative integers in array", () => {
     expect(analyzeArray([1, 8, 3, 4, 2, -6])).toStrictEqual({
-        average: 2,
-        min: -6,
-        max: 8,
-        length: 6,
-      });
-  })
+      average: 2,
+      min: -6,
+      max: 8,
+      length: 6,
+    });
+  });
 });
