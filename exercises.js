@@ -47,9 +47,9 @@ const caesarCipher = (s) => {
   } else if (s.charAt(0) === "z" || s.charAt(0) === "Z") {
     // Handles z characters
     if (s.charAt(0) === "z") {
-        return "a" + caesarCipher(s.substr(1))
+      return "a" + caesarCipher(s.substr(1));
     }
-    return "A" + caesarCipher(s.substr(1))
+    return "A" + caesarCipher(s.substr(1));
   } else if (key.includes(s.charAt(0).toLowerCase()) === false) {
     // Puncuation check
     return s.charAt(0) + caesarCipher(s.substr(1));
@@ -64,4 +64,21 @@ const caesarCipher = (s) => {
   }
 };
 
-export { capitalize, reverseString, calculator, caesarCipher };
+const analyzeArray = (arr) => {
+  let avg =
+    arr.reduce((prev, curr) => {
+      return prev + curr;
+    }, 0) / arr.length;
+  let low = Math.min(...arr);
+  let high = Math.max(...arr);
+  let arrLength = arr.length;
+
+  return {
+    average: avg,
+    min: low,
+    max: high,
+    length: arrLength,
+  };
+};
+
+export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };
